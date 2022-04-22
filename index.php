@@ -14,8 +14,9 @@ header('Expires: 0');
 // If a note's name is not provided or contains non-alphanumeric/non-ASCII or a '-' characters.
 if (!isset($_GET['note']) || !preg_match('/^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)$/', $_GET['note'])) {
 
-    // Generate a name with 5 random unambiguous characters. Redirect to it.
-    header("Location: $base_url/" . substr(str_shuffle('2345679abcdefghjkmnpqrstwxyz'), -5));
+    // Generate a name with 3 random unambiguous characters. Redirect to it.
+	//****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1,ABCDEFGHJKMNPQRSTWXYZ****//
+    header("Location: $base_url/" . substr(str_shuffle('2345678abcdefhijkmnprstwxyz'), -3));
     die;
 }
 
